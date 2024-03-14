@@ -43,6 +43,7 @@ class ProductoController {
     }
 
     public static function crear(Router $router) {
+        session_start();
         isAdmin();
         $producto = new Producto;
         $categorias = Categoria::all();
@@ -112,7 +113,7 @@ class ProductoController {
     }
 
     public static function actualizar(Router $router) {
-
+        session_start();
         isAdmin();
         $id = validarORedireccionarGet("/admin-productos");
         $producto = Producto::find($id);
@@ -188,6 +189,7 @@ class ProductoController {
 
     public static function eliminar() {
         if($_SERVER["REQUEST_METHOD"] === "POST") {
+            session_start();
             isAdmin();
             $id = validarORedireccionarPost("/admin-productos");
             $tipo = $_POST["tipo"];
