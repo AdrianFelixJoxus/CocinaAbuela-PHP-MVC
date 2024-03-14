@@ -1,0 +1,79 @@
+@use 'base/variables' as v;
+
+
+.formulario {
+    p {
+        font-size: 1.4rem;
+        color: v.$grisOscuro;
+        margin: 2rem 0 0 0;
+    }
+
+    legend {
+        font-size: 2rem;
+        color: v.$grisOscuro;
+    }
+
+    fieldset {
+        border: 1px solid v.$grisOscuro;
+        border-radius: 1rem;
+    }
+
+    label {
+        font-weight: v.$bold;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    input:not([type="submit"]),
+    textarea,
+    select { //afecta a todos los inputs con excepcion del submit 
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        background-color: v.$blanco;
+        border: 1px solid v.$gris;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    textarea {
+        height: 20rem;
+    }
+
+    .forma-inputs {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+    }
+
+    
+    input[type="radio"] {
+        margin: 0;
+        width: auto;
+    }
+}
+
+.forma-labels {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.forma-inputs-total {
+    
+    display: flex;
+    flex-direction: column;
+    max-width: 10%;
+    margin-top: 10rem;
+    
+}
+
+.forma-venta2 {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    margin-top: 3rem;
+}

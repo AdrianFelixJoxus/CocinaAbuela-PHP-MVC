@@ -1,0 +1,87 @@
+@use 'base/variables' as v;
+.contenido-resumen {
+    
+    p {
+        margin-bottom: 1rem;
+        color: v.$blanco;
+        font-weight: 400;
+        font-size: 1.4rem;
+    }
+    span {
+        color: v.$azul;
+        font-weight: 400;
+        font-size: 1.4rem;
+    }
+
+    .tituloResumen {
+        margin-top: 3rem;
+        font-weight: v.$bold;
+    }
+}
+.contenedor-producto {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 1rem;
+    background-color: v.$grisOscuro;
+    border-bottom: 1px solid v.$gris;
+    gap: 1rem;
+    place-items: center;
+
+    &:last-of-type {
+        margin-bottom: v.$separacion;
+    }
+
+}
+
+.contenedor-barra {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 1rem;
+    background-color: v.$grisOscuro;
+    border-bottom: 1px solid v.$gris;
+    gap: 1rem;
+    place-items: center;
+    text-align: left;
+    p {
+        color: v.$azul;
+    }
+    
+    
+
+    // &:last-of-type {
+    //     margin-bottom: v.$separacion;
+    // }
+
+}
+
+.total-producto {
+    display: grid;
+    padding: 1rem;
+    background-color: v.$grisOscuro;
+    border-bottom: 1px solid v.$gris;
+    grid-template-columns: repeat(2,1fr);
+   
+    p {
+        color: v.$blanco;
+        font-size: 2rem;
+        text-align: right;
+        margin-right: 1rem;
+    }
+
+    button {
+        width: 10rem;
+    }
+    
+}
+
+.Articulo {
+    display: grid;
+}
+
+.orden-formato-comentario {
+    width: 100%;
+}
+
+.orden-formato-imagen {
+    width: 50%;
+}

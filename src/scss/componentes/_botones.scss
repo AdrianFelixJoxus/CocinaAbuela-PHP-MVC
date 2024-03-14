@@ -1,0 +1,33 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boton {
+    @include m.boton(v.$azul, v.$blanco);
+}
+
+.boton-verde {
+    @include m.boton(v.$verde,v.$blanco)
+}
+
+.boton-rojo {
+    @include m.boton2(v.$rojo,v.$blanco)
+}
+
+.boton-amarillo {
+    @include m.boton2(v.$amarillo,v.$blanco)
+}
+
+.boton-rojo-admin {
+    @include m.boton3(v.$rojo,v.$blanco)
+}
+
+.boton-amarillo-admin {
+    @include m.boton3(v.$amarillo,v.$blanco)
+}
+
+.botonEliminar {
+    @include m.botonEliminar(v.$rojo,v.$blanco)
+}
+
+
+

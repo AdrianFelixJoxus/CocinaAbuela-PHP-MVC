@@ -1,0 +1,128 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.listado-productos {
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+    @include m.grid(2,1rem);
+    
+    
+    @include m.tablet {
+        @include m.grid(3,1rem);
+        
+    }
+
+    .producto {
+        background-color: #f1e576;
+        
+        padding: 1rem;
+        border-radius: 1rem;
+        transition-property: transform;
+        transition-duration: 300ms;
+        text-align: center;
+        height: 100%;
+        display: grid;
+        align-items: end;
+
+        &.seleccionado {
+            background-color: v.$azul;
+            p {
+                color: v.$blanco;
+            }
+        }
+
+        &:hover{ 
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+        
+        p {
+            color: v.$negro;
+            margin: 0 0 calc(v.$separacion / 4) 0;
+        }
+
+        .nombre-producto {
+            color: v.$negro;
+            font-weight: v.$bold;
+            font-size: 1.4rem;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+
+        .precio-producto {
+            color: v.$azul;
+            font-weight: v.$bold;
+            margin: 0;
+            font-size: 1.4rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form {
+            .boton {
+                background-color: rgb(252, 197, 48);
+            }
+        }
+
+        .cantidad-producto {
+            width: 100%;
+        }
+    }
+}
+
+.contenedor-app {
+
+    
+
+   .app {
+    width: 95%;
+    margin: 0 auto;
+    padding: 3rem 0;
+
+
+    @include m.tablet {
+        //overflow: scroll;
+    }
+    
+    }
+
+
+    
+}
+
+.orden {
+    display: grid;
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        min-height: 100vh;
+        gap: 1rem;
+       }
+
+    .contenido-orden {
+        grid-row: 1/2;
+        @include m.tablet {
+            grid-row: 1/2;
+            grid-column: 2/3;
+            
+        }
+
+    }
+
+    .contenido-resumen:empty {
+        display: none;
+    }
+
+    .contenido-resumen {
+        height: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+

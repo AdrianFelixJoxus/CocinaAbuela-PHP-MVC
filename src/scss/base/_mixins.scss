@@ -1,0 +1,127 @@
+@use 'variables' as v;
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+
+@mixin boton($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    padding: 1.5rem 2rem;
+    color: $colorTexto;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    //display: block;
+    width: 95%;
+    margin: 2rem 2rem;
+
+    @include tablet {
+        width: 20%;
+    }
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+}
+
+@mixin boton2($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    padding: 1.5rem 2rem;
+    color: $colorTexto;
+    //margin-top: 2rem;
+    font-size: 1.5rem;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    width: 95%;
+    margin: 2rem 2rem;
+
+    @include tablet {
+        width: 20rem;
+    }
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+}
+
+@mixin boton3($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    padding: 1rem 2rem;
+    color: $colorTexto;
+    //margin-top: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    width: 95%;
+    margin: 0 auto;
+
+    @include tablet {
+        width: 20rem;
+    }
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin botonEliminar($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    padding: 1rem 1rem;
+    color: $colorTexto;
+    //margin-top: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    width: 95%;
+    margin: 0 auto;
+
+    @include tablet {
+        width: 2rem;
+        height: 2rem;
+        display: grid;
+        place-content: center;
+    }
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+}

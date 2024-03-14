@@ -1,0 +1,59 @@
+@use "base/variables" as v;
+
+.centrado {
+    text-align: center;
+    align-content: center;
+}
+
+.ticket {
+    display: grid;
+    place-items: center;
+    width: 20rem;
+    max-width: 20rem;
+
+    .titulo {
+        font-size: 1.8rem;
+        font-weight: v.$bold;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+
+    img {
+        max-width: inherit;
+        width: 10rem;
+    }
+    
+    td,
+    th,
+    tr,
+    table {
+        border-top: 1px solid black;
+        border-collapse: collapse;
+    }
+    
+    td.producto,
+    th.producto {
+        width: 10rem;
+        max-width: 10rem;
+        font-size: 1.2rem;
+    }
+    
+    td.cantidad,
+    th.cantidad {
+        width: 7rem;
+        max-width: 7rem;
+        font-size: 1.2rem;
+        word-break: break-all;
+    }
+    
+    td.precio,
+    th.precio {
+        width: 7rem;
+        max-width: 7rem;
+        font-size: 1.2rem;
+        word-break: break-all;
+    }
+}
+

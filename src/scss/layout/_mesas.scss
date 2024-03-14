@@ -1,0 +1,65 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.contenido-venta {
+    border: 1px solid gray;
+    padding: 1rem 0 3rem 0;
+    width: 100%;
+    box-shadow: 0px 6px 6px 0px rgba(112,112,112,0.42);
+
+    .venta__mesas {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-items: center;
+        gap: 2rem;
+        padding: 5rem;
+    }
+}
+
+.venta__mesa--diseño {
+
+    height: 10rem;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    //background-color: $colorMesa;
+    //box-shadow: $shadowMesa;
+
+    h2 {
+        //font-size: 1.8rem;
+        //font-weight: $bold;       
+    }
+
+         &:hover {
+         //width: 90%;
+        // height: 8rem;
+        // cursor: pointer;
+        }
+    
+}
+
+.venta__mesa--diseño2 {
+
+    height: 10rem;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    background-color: v.$colorMesa;
+    box-shadow: v.$shadowMesa;
+    border: none;
+    h2 {
+        font-size: 1.8rem;
+        font-weight: v.$bold;
+
+        @include m.tablet {
+            font-size: 2rem;
+        }
+    }
+
+    &:hover {
+        width: 90%;
+        height: 8rem;
+        cursor: pointer;
+    }
+    
+}
