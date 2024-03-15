@@ -265,8 +265,8 @@ async function consultarDesayunos() {
         const url = `${location.origin}/api/filtrar-huevos`;
         const url2 = `${location.origin}/api/filtrar-omelettes`;
         const url3 = `${location.origin}/api/filtrar-hotcakes`;
-        const url4 = `${location.origin}/api/filtrar-otros`;
-        const url5 = `${location.origin}/api/filtrar-niños`;
+        //const url4 = `${location.origin}/api/filtrar-otros`;
+        //const url5 = `${location.origin}/api/filtrar-niños`;
         
         const [res,res2,res3,res4,res5] = await Promise.allSettled([fetch(url),fetch(url2),fetch(url3),fetch(url4),fetch(url5)]);
         
@@ -283,16 +283,16 @@ async function consultarDesayunos() {
             res.value.json(),
             res2.value.json(),
             res3.value.json(),
-            res4.value.json(),
-            res5.value.json()
+            //res4.value.json(),
+            //res5.value.json()
         ]);
 
 
         filtrarProductos(Huevos, "#Huevos");
         filtrarProductos(Omelettes, "#Omelettes");
         filtrarProductos(Hotcakes, "#Hotcakes");
-        filtrarProductos(Otros, "#Otros");
-        filtrarProductos(niños, "#Niños");
+        //filtrarProductos(Otros, "#Otros");
+        //filtrarProductos(niños, "#Niños");
  
 }
 
