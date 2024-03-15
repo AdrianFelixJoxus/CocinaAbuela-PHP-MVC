@@ -262,11 +262,11 @@ function subtabs() {
 
 async function consultarDesayunos() {
     
-        const url = "http://localhost:3000/api/filtrar-huevos";
-        const url2 = "http://localhost:3000/api/filtrar-omelettes";
-        const url3 = "http://localhost:3000/api/filtrar-hotcakes";
-        const url4 = "http://localhost:3000/api/filtrar-otros";
-        const url5 = "http://localhost:3000/api/filtrar-niños";
+        const url = `${location.origin}/api/filtrar-huevos`;
+        const url2 = `${location.origin}/api/filtrar-omelettes`;
+        const url3 = `${location.origin}/api/filtrar-hotcakes`;
+        const url4 = `${location.origin}/api/filtrar-otros`;
+        const url5 = `${location.origin}/api/filtrar-niños`;
         
         const [res,res2,res3,res4,res5] = await Promise.allSettled([fetch(url),fetch(url2),fetch(url3),fetch(url4),fetch(url5)]);
         
@@ -298,8 +298,8 @@ async function consultarDesayunos() {
 
 async function consultarBebidas() {
     
-        const url = "http://localhost:3000/api/filtrar-calientes";
-        const url2 = "http://localhost:3000/api/filtrar-frias";
+        const url = `${location.origin}/api/filtrar-calientes`;
+        const url2 = `${location.origin}/api/filtrar-frias`;
         
         
         const [res,res2] = await Promise.allSettled([fetch(url),fetch(url2)]);
@@ -328,9 +328,9 @@ async function consultarBebidas() {
 
 async function consultarComidas() {
     
-    const url = "http://localhost:3000/api/filtrar-carta";
-    const url2 = "http://localhost:3000/api/filtrar-tortas";
-    const url3 = "http://localhost:3000/api/filtrar-antojitos";
+    const url = `${location.origin}/api/filtrar-carta`;
+    const url2 = `${location.origin}/api/filtrar-tortas`;
+    const url3 = `${location.origin}/api/filtrar-antojitos`;
 
     
     
@@ -361,7 +361,7 @@ async function consultarComidas() {
 }
 
 async function consultarMesas() {
-    const url = "http://localhost:3000/api/mesas";
+    const url = `${location.origin}/api/mesas`;
     const respuesta = await fetch(url);
     const resultado = await respuesta.json();
     
@@ -738,7 +738,7 @@ async function ordenar() {
       
       try {
         //peticion hacia la api
-        const url = "http://localhost:3000/api/ordenes";
+        const url = `${location.origin}/api/ordenes`;
 
         // respuesta para tipo post
         const respuesta = await fetch(url, {
@@ -757,7 +757,7 @@ async function ordenar() {
             }).then( () => {
                 setTimeout(() => {
                     // window.location.reload();
-                    window.location.href = "http://localhost:3000/mesas";
+                    window.location.href = `${location.origin}/mesas`;
                 }, 500);
                 
             });

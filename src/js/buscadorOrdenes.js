@@ -30,7 +30,7 @@ async function eliminarOrden() {
 
     try {
         //peticion api
-        const url = "http://localhost:3000/api/eliminarOrden";
+        const url = `${location.origin}/api/eliminarOrden`;
 
         // respuesta Post
         const respuesta = await fetch(url, {
@@ -49,7 +49,7 @@ async function eliminarOrden() {
             }).then( () => {
                 setTimeout(() => {
                     // window.location.reload();
-                    window.location.href = "http://localhost:3000/ordenes";
+                    window.location.href = `${location.origin}/ordenes`;
                 }, 1000);
                 
             });

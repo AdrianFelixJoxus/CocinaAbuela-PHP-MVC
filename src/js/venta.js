@@ -119,7 +119,7 @@ async function eliminarVenta() {
 
     try {
         // peticion api
-        const url = "http://localhost:3000/api/eliminarVenta";
+        const url = `${location.origin}/api/eliminarVenta`;
 
         // respuestas tipo post
         const respuesta = await fetch(url, {
@@ -138,7 +138,7 @@ async function eliminarVenta() {
             }).then( () => {
                 setTimeout(() => {
                     // window.location.reload();
-                    window.location.href = "http://localhost:3000/ventas";
+                    window.location.href = `${location.origin}/ventas`;
                 }, 500);
                 
             });
