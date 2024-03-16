@@ -66,7 +66,7 @@
 
             <h2>Seccion Niños</h2>
 
-            <div id="Niños" class="listado-productos"></div>
+            <div id="Ninos" class="listado-productos"></div>
         </div>
     
 

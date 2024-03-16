@@ -304,7 +304,7 @@ async function consultarDesayunos() {
         filtrarProductos(omelettes, "#Omelettes");
         filtrarProductos(hotcakes, "#Hotcakes");
         filtrarProductos(otros, "#Otros");
-        filtrarProductos(niños, "#Niños");
+        filtrarProductos(niños, "#Ninos");
 
         
     } catch (error) {
