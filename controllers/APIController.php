@@ -108,7 +108,7 @@ class APIController {
 
    
 
-    public static function niños() {
+    public static function ninos() {
        
         
 
