@@ -72,7 +72,7 @@ $router->get("/api/filtrar-huevos",[APIController::class,"huevos"]);
 $router->get("/api/filtrar-omelettes",[APIController::class,"Omelettes"]);
 $router->get("/api/filtrar-hotcakes",[APIController::class,"hotcakes"]);
 $router->get("/api/filtrar-otros",[APIController::class,"otros"]);
-$router->get("/api/filtrar-niños",[APIController::class,"niños"]);
+$router->get("/api/filtrar-ninos",[APIController::class,"niños"]);
 
 // Api productos de las bebidas // Url o endpoint
 $router->get("/api/filtrar-calientes",[APIController::class,"calientes"]);

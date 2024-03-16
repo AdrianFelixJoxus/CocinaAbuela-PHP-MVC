@@ -265,34 +265,51 @@ async function consultarDesayunos() {
         const url = `${location.origin}/api/filtrar-huevos`;
         const url2 = `${location.origin}/api/filtrar-omelettes`;
         const url3 = `${location.origin}/api/filtrar-hotcakes`;
-        //const url4 = `${location.origin}/api/filtrar-otros`;
-        //const url5 = `${location.origin}/api/filtrar-niños`;
+        const url4 = `${location.origin}/api/filtrar-otros`;
+        const url5 = `${location.origin}/api/filtrar-ninos`;
         
-        const [res,res2,res3,res4,res5] = await Promise.allSettled([fetch(url),fetch(url2),fetch(url3),fetch(url4),fetch(url5)]);
+        try {
+
+        const [res,res2,res3,res4,res5] = await Promise.allSettled([
+            fetch(url).then(res => res.ok ? res : Promise.reject({status: res.status, statusText: res.statusText})),
+            fetch(url2).then(res => res.ok ? res : Promise.reject({status: res.status, statusText: res.statusText})),
+            fetch(url3).then(res => res.ok ? res : Promise.reject({status: res.status, statusText: res.statusText})),
+            fetch(url4).then(res => res.ok ? res : Promise.reject({status: res.status, statusText: res.statusText})),
+            fetch(url5).then(res => res.ok ? res : Promise.reject({status: res.status, statusText: res.statusText}))
+        
+        ]);
         
         // verificar si alguna promesa ha fallado
         const promesasFallo = [res,res2,res3,res4,res5].filter(resultado => resultado.status === "rejected");
 
-        if(promesasFallo.length >0) {
-            console.error('Al menos una peticion falló:', promesasFallo);
+        if (promesasFallo.length > 0) {
+            promesasFallo.forEach(fallo => {
+                console.error(`Petición fallida: ${fallo.reason.status} - ${fallo.reason.statusText}`);
+            });
             return;
         }
 
+
         // continua si no hay ningun fallo
-        const [Huevos,Omelettes,Hotcakes,Otros,niños] = await Promise.all([
+        const [huevos,omelettes,hotcakes,otros,niños] = await Promise.all([
             res.value.json(),
             res2.value.json(),
             res3.value.json(),
-            //res4.value.json(),
-            //res5.value.json()
+            res4.value.json(),
+            res5.value.json()
         ]);
 
 
-        filtrarProductos(Huevos, "#Huevos");
-        filtrarProductos(Omelettes, "#Omelettes");
-        filtrarProductos(Hotcakes, "#Hotcakes");
-        //filtrarProductos(Otros, "#Otros");
-        //filtrarProductos(niños, "#Niños");
+        filtrarProductos(huevos, "#Huevos");
+        filtrarProductos(omelettes, "#Omelettes");
+        filtrarProductos(hotcakes, "#Hotcakes");
+        filtrarProductos(otros, "#Otros");
+        filtrarProductos(niños, "#Niños");
+
+        
+    } catch (error) {
+        console.log("Error al consultar desayunos: ",error);
+    }
  
 }
 
