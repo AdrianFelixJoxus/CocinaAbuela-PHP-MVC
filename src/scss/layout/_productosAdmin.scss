@@ -109,3 +109,17 @@ table.propiedades {
     justify-content: center;
 }
 
+.botonesAdmin {
+    
+    padding: 0;
+    @include m.tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .boton2 {
+            width: 100%;
+        }
+    }
+}
+

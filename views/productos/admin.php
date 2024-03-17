@@ -12,10 +12,11 @@
     }?>
 
 
-    <a href="/productos-crear" class="boton2 boton-verde">Nuevo Producto</a>
-    <a href="/ordenes" class="boton2 boton-amarillo">Ver Ordenes</a>
-    <a href="/ventas" class="boton2 boton-amarillo">Ver Ventas</a>
-
+    <div class="botonesAdmin">
+        <a href="/productos-crear" class="boton2 boton-verde">Nuevo Producto</a>
+        <a href="/ordenes" class="boton2 boton-amarillo">Ver Ordenes</a>
+        <a href="/ventas" class="boton2 boton-amarillo">Ver Ventas</a>
+    </div>
 
     <h2>Productos</h2>
 
