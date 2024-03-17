@@ -5,7 +5,7 @@ namespace Model;
 class Usuario extends ActiveRecord {
 
     protected static $tabla = "usuarios";
-    protected static $columnasDB = ["id","nombre","apellido","email","password","telefono","admin","cajero","confirmado","token"];
+    protected static $columnasDB = ["id","nombre","apellido","email","password","telefono","admin","cajero","confirmado","token","activo"];
 
     public $id;
     public $nombre;
@@ -17,6 +17,7 @@ class Usuario extends ActiveRecord {
     public $cajero;
     public $confirmado;
     public $token;
+    public $activo;
 
     public function __construct($args = [])
     {
@@ -30,6 +31,7 @@ class Usuario extends ActiveRecord {
         $this->cajero = trim($args["cajero"] ?? "0");
         $this->confirmado = trim($args["confirmado"] ?? "0");
         $this->token = trim($args["token"] ?? "");
+        $this->activo = trim($args["activo"] ?? "0");
 
     }
 
@@ -108,6 +110,20 @@ class Usuario extends ActiveRecord {
             self::$alertas["error"][] = "El usuario ya esta registrado"; 
         }
     
+        return $resultado;
+    }
+
+    public function usuarioActivo() {
+        $query = "SELECT * FROM " . self::$tabla . " WHERE email = '";
+        $query .= trim(self::$db->escape_string($this->email));
+        $query .= "' AND activo = 1 LIMIT 1";
+
+        $resultado = self::$db->query($query);
+
+        
+        if($resultado->num_rows) {
+            self::$alertas["error"][] = "El usuario esta en uso";
+        }
         return $resultado;
     }
 

@@ -20,24 +20,33 @@ class LoginController {
                 if($usuario) {
                     
                    if($usuario->verificarPasswordAndComprobado($auth->password)) {
-                    session_start();
-                    
-                    $_SESSION["id"] = $usuario->id;
-                    $_SESSION["nombre"] = $usuario->nombre . " " . $usuario->apellido;
-                    $_SESSION["email"] = $usuario->email;
-                    $_SESSION["login"] = true;
+                    // Comprobar si esta activo
+                    $resultado = $usuario->usuarioActivo();
+                    //debuguear($resultado);
+                    if(!$resultado->num_rows) {
+                        session_start();
+                        
+                        $_SESSION["id"] = $usuario->id;
+                        $_SESSION["nombre"] = $usuario->nombre . " " . $usuario->apellido;
+                        $_SESSION["email"] = $usuario->email;
+                        $_SESSION["login"] = true;
+                        $usuario->activo = "1";
+                        $_SESSION["activo"] = $usuario->activo;
+                        $usuario->guardar();
 
-                    if($usuario->admin === "1") {
-                        $_SESSION["admin"] = $usuario->admin ?? null;
-                        header("Location: /admin-productos");
-                    }else if($usuario->cajero === "1") {
-                        $_SESSION["cajero"] = $usuario->cajero ?? null;
-                        header("Location: /mesas");
-                    }else {
-                        header("Location: /");
+                        if($usuario->admin === "1") {
+                            $_SESSION["admin"] = $usuario->admin ?? null;
+                            header("Location: /admin-productos");
+                        }else if($usuario->cajero === "1") {
+                            $_SESSION["cajero"] = $usuario->cajero ?? null;
+                            header("Location: /mesas");
+                        }else {
+                            header("Location: /");
+                        }
+                        
                     }
                     
-                   }
+                    }
                 }else {
                     Usuario::setAlerta("error","Usuario no encontrado");
                 }
@@ -52,9 +61,11 @@ class LoginController {
 
     public static function logout() {
         session_start();
-
+        $id = $_SESSION["id"];
+        $usuario = Usuario::find($id);
+        $usuario->activo = "0";
+        $usuario->guardar();
         $_SESSION = [];
-
         header("Location: /");
     }
 
