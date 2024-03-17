@@ -3,9 +3,10 @@
 
 .listado-productos {
     display: grid;
+    grid-template-columns: repeat(2,1fr);
     gap: 2rem;
     place-items: center;
-    @include m.grid(2,1rem);
+    //@include m.grid(2,1rem);
     
     
     @include m.tablet {
