@@ -47,7 +47,7 @@
             ?>
             <div class="admin-header">
             <div class="header-productos">
-                <p>Cantidad</p>
+                <p>Cant</p>
                 <p>Producto</p>
                 <p>Importe</p>
             </div>
@@ -76,10 +76,10 @@
     <?php }
         } // fin foreach?>
         
-        <div id="contenedorCobro">
+        <div class="contenedorcobro" id="contenedorCobro">
             <input id="efectivo" type="button" class="boton" value="Efectivo">
             <input id="tarjeta" type="button" class="boton" value="Tarjeta">
-            <input class="inputCobro" type="number" value="">
+            <input class="inputCobro" type="number" value="" placeholder="Ingresa El Monto">
             
         </div>
         
