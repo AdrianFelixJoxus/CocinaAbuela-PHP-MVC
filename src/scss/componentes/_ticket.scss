@@ -31,20 +31,25 @@
     table {
         border-top: 1px solid black;
         border-collapse: collapse;
+        text-align: center;
+    }
+
+    thead {
+
     }
     
     td.producto,
     th.producto {
         width: 10rem;
         max-width: 10rem;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     td.cantidad,
     th.cantidad {
         width: 7rem;
         max-width: 7rem;
-        font-size: 1.2rem;
+        font-size: 1rem;
         word-break: break-all;
     }
     
@@ -52,7 +57,7 @@
     th.precio {
         width: 7rem;
         max-width: 7rem;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         word-break: break-all;
     }
 }
