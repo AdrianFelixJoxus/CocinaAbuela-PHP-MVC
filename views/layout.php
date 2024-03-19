@@ -25,10 +25,10 @@
                     <nav class="navegacion">
 
                     
-                        <a href="/admin-productos">Platillos</a>
+                        <a href="/admin-productos">Administrador</a>
                         <a href="/mesas">Venta</a>
                         <a href="/admin/usuarios">Usuarios</a>
-                        <a href="#">Comparativa</a>
+    
 
                         <?php if(isset($_SESSION["admin"]) || isset($_SESSION["cajero"])){ ?>
                             <a href="/logout">Cerrar Sesion</a>
