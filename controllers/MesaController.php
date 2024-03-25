@@ -17,7 +17,8 @@ class MesaController {
         
         if($_SERVER["REQUEST_METHOD"] === "POST") {
             
-            isAdmin();
+            //isAdmin();
+            isCajero();
             $id = validarORedireccionarPost("/");
             $tipo = $_POST["tipo"];
 
