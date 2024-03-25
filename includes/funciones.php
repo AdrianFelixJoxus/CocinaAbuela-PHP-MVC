@@ -88,6 +88,12 @@ function isCajero() : void {
     }
 }
 
+function isMesero() : void {
+    if(!isset($_SESSION["mesero"])) {
+       header("Location: /");
+    }
+}
+
 function isAuth() : void {
     if(!isset($_SESSION["login"])) {
        header("Location: /");

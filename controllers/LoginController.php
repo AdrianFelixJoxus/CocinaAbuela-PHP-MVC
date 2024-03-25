@@ -34,14 +34,23 @@ class LoginController {
                         $_SESSION["activo"] = $usuario->activo;
                         $usuario->guardar();
 
-                        if($usuario->admin === "1") {
-                            $_SESSION["admin"] = $usuario->admin ?? null;
-                            header("Location: /admin-productos");
-                        }else if($usuario->cajero === "1") {
-                            $_SESSION["cajero"] = $usuario->cajero ?? null;
-                            header("Location: /mesas");
-                        }else {
-                            header("Location: /");
+                        $id = $usuario->id;
+                        switch($id) {
+                            case $usuario->admin === "1":
+                                $_SESSION["admin"] = $usuario->admin ?? null;
+                                header("Location: /admin-productos");
+                                break;
+                            case $usuario->cajero === "1":
+                                $_SESSION["cajero"] = $usuario->cajero ?? null;
+                                header("Location: /ventas");
+                                break;
+                            case $usuario->mesero === "1";
+                                $_SESSION["mesero"] = $usuario->mesero ?? null;
+                                header("Location: /mesas");
+                                break;
+                            default:
+                                header("Location: /");
+                                break;
                         }
                         
                     }

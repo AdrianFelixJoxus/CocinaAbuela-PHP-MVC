@@ -13,8 +13,8 @@ class AdminController {
 
     public static function index(Router $router) {
         session_start();
-        isAdmin();
-        //isCajero();
+        //isAdmin();
+        isCajero();
 
         $fecha = $_GET["fecha"] ?? date("Y-m-d");
         $fechas = explode("-",$fecha);
@@ -50,7 +50,8 @@ class AdminController {
     public static function orden(Router $router) {
         session_start();
         isAuth();
-
+        isMesero();
+        
         $router->render("orden/index",[
             "nombre" => $_SESSION["nombre"],
             "id" => $_SESSION["id"]
@@ -60,8 +61,8 @@ class AdminController {
 
     public static function ventas(Router $router) {
         session_start();
-        isAdmin();
-        //isCajero();
+        //isAdmin();
+        isCajero();
 
         // $fecha = $_GET["fecha"] ?? date("Y-m-d",strtotime("-1 day"));
         $fecha = $_GET["fecha"] ?? date("Y-m-d");
@@ -100,7 +101,8 @@ class AdminController {
     public static function venta(Router $router) {
 
         session_start();
-        isAdmin();
+        //isAdmin();
+        isCajero();
 
 
         if($_SERVER["REQUEST_METHOD"] === "POST") {

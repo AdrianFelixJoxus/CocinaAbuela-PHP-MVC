@@ -12,8 +12,8 @@ class ProductoController {
     
     public static function index(Router $router) {
         session_start();
-        isAdmin();
-        
+        //isAdmin();
+        isCajero();
         
         $productos = Producto::all();
         $categorias = Categoria::all();

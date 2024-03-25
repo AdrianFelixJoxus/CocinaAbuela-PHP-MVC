@@ -30,7 +30,7 @@
                         <a href="/admin/usuarios">Usuarios</a>
     
 
-                        <?php if(isset($_SESSION["admin"]) || isset($_SESSION["cajero"])){ ?>
+                        <?php if(isset($_SESSION["admin"]) || isset($_SESSION["cajero"]) || isset($_SESSION["mesero"])){ ?>
                             <a href="/logout">Cerrar Sesion</a>
                         <?php } ?>
                     </nav>
