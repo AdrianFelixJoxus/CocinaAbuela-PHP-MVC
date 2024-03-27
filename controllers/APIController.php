@@ -77,16 +77,19 @@ class APIController {
 
     public static function eliminarVenta() {
         $id = $_POST["id"];
+        $idUsuarioVendedor = $_POST["usuarioId"];
         // $consulta = "DELETE FROM ventaproductos WHERE ventaId = $id";
         // $resultado  = VentaProducto::SQL($consulta);
 
         $venta = VentaProducto::whereM("ventaId",$id);
-        
+        $ven = Venta::find($id);//Busca la venta a insertar el usuario vendedor
         foreach($venta as $v) {
             $v->eliminarM("ventaId",$id);
         }
         $resultado = $v;
-        
+        //Inserta en el campo usuarioId el usuario id
+        $ven->usuarioId = $idUsuarioVendedor;
+        $ven->guardar();
         //retorno de respuesta
         echo json_encode(["resultado" => $resultado]);
     

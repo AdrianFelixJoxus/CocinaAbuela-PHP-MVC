@@ -113,9 +113,11 @@ function Cobro(id) {
 
 async function eliminarVenta() {
     const folio = document.querySelector("#folio");
+    const idVendedor = document.querySelector("#idVendedor");
     
     const datos = new FormData();
     datos.append("id",folio.textContent);
+    datos.append("usuarioId",idVendedor.value);
 
     try {
         // peticion api

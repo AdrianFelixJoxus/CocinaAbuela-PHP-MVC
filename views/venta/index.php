@@ -30,6 +30,7 @@
             <p>Mesa: <span class="producto"><?php echo $v->mesa; ?></span></p>
             <p>Vendedor: <span class="producto"><?php echo $nombre; ?></span></p>
             <p>Mesero: <span class="producto"><?php echo $v->mesero; ?></span></p>
+            <input type="hidden" id="idVendedor" value="<?php echo $idVendedor ?>">
             </div>
 
             <!-- <h3>Productos</h3> -->

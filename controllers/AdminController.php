@@ -144,7 +144,8 @@ class AdminController {
 
         $router->render("venta/index",[
             "nombre" => $_SESSION["nombre"],
-            "venta" => $venta
+            "venta" => $venta,
+            "idVendedor" => $_SESSION["id"]
         ]);
 
        
