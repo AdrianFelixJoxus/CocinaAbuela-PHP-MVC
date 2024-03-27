@@ -8,7 +8,7 @@
 <fieldset>
     <div class="campo">
     
-        <label for="email">Email</label>
+        <label for="email">Usuario</label>
         <input 
             type="email"
             id="email"
