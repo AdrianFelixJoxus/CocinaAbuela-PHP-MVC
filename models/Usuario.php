@@ -75,8 +75,8 @@ class Usuario extends ActiveRecord {
     }
 
     public function validarLogin() {
-        if(!$this->email) {
-            self::$alertas["error"][] = "El email es obligatorio";
+        if(!$this->usuario) {
+            self::$alertas["error"][] = "El usuario es obligatorio";
         }
         if(!$this->password) {
             self::$alertas["error"][] = "El password es obligatorio";

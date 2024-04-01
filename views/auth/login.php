@@ -8,13 +8,13 @@
 <fieldset>
     <div class="campo">
     
-        <label for="email">Usuario</label>
+        <label for="usuario">Usuario</label>
         <input 
-            type="email"
-            id="email"
-            placeholder="Tu Email"
-            name="email"
-            value="<?php s($usuario->email) ?>"
+            type="text"
+            id="usuario"
+            placeholder="Tu Usuario"
+            name="usuario"
+            value="<?php s($usuario->usuario) ?>"
         >
     </div>
     <div class="campo">
