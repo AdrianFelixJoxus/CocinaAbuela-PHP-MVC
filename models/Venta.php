@@ -18,6 +18,6 @@ class Venta extends ActiveRecord {
         $this->fecha = $args["fecha"] ?? "";
         $this->hora = $args["hora"] ?? "";
         $this->ordenId = $args["ordenId"] ?? null;
-        $this->usuarioId = $args["usuarioId"] ?? "";
+        $this->usuarioId = $args["usuarioId"] ?? null;
     }
 }

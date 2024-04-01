@@ -25,7 +25,8 @@ class APIController {
         $argsVenta = [
             "fecha" => $_POST["fecha"],
             "hora" => $_POST["hora"],
-            "ordenId" => $id
+            "ordenId" => $id,
+            "usuarioId" =>$_POST["usuarioId"]
         ];
         
 
