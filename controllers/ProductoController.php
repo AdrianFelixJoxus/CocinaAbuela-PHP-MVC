@@ -13,7 +13,7 @@ class ProductoController {
     public static function index(Router $router) {
         session_start();
         //isAdmin();
-        isCajero();
+        //isCajero();
         
         $productos = Producto::all();
         $categorias = Categoria::all();
@@ -45,6 +45,7 @@ class ProductoController {
     public static function crear(Router $router) {
         session_start();
         isAdmin();
+        //isCajero();
         $producto = new Producto;
         $categorias = Categoria::all();
         

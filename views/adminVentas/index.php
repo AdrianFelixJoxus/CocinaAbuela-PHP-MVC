@@ -1,5 +1,6 @@
 <h1 class="nombre-pagina">Panel de Ventas</h1>
 
+<a href="/admin-productos" class="boton">volver</a>
 <?php include_once __DIR__ . "/../templates/barra.php"; ?>
 
 <h2>Buscar Ventas</h2>
