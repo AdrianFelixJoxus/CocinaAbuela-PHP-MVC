@@ -14,6 +14,7 @@ class ProductoController {
         session_start();
         //isAdmin();
         //isCajero();
+        isAuth();
         
         $productos = Producto::all();
         $categorias = Categoria::all();
