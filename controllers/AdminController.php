@@ -14,7 +14,7 @@ class AdminController {
     public static function index(Router $router) {
         session_start();
         //isAdmin();
-        isCajero();
+        isMesero();
 
         $fecha = $_GET["fecha"] ?? date("Y-m-d");
         $fechas = explode("-",$fecha);
@@ -24,7 +24,7 @@ class AdminController {
         }
 
         //consultar la base de datos
-        $consulta = "SELECT orden.id,orden.fecha,orden.hora,orden.mesaId,ordenesproductos.Cantidad,productos.nombre as producto,ordenesproductos.comentario,concat( usuarios.nombre,' ',usuarios.apellido) as usuario ,orden.usuarioId "; 
+        $consulta = "SELECT orden.id,orden.fecha,orden.hora,orden.mesaId,ordenesproductos.Cantidad,productos.nombre as producto,productos.categoriasId,ordenesproductos.comentario,concat( usuarios.nombre,' ',usuarios.apellido) as usuario ,orden.usuarioId "; 
         $consulta .= "FROM ordenesproductos left JOIN "; 
         $consulta .= "orden ";
         $consulta .= "ON ordenesproductos.ordenId = orden.id ";
@@ -39,7 +39,7 @@ class AdminController {
         //debuguear($ordenes);
         isAuth();
 
-
+        //debuguear($ordenes);
         $router->render("adminOrdenes/index",[
             "nombre" => $_SESSION["nombre"],
             "ordenes" => $ordenes,
@@ -48,6 +48,17 @@ class AdminController {
     }
 
     public static function orden(Router $router) {
+        session_start();
+        isAuth();
+        isMesero();
+        
+        $router->render("orden/index",[
+            "nombre" => $_SESSION["nombre"],
+            "id" => $_SESSION["id"]
+        ]);
+    }
+
+    public static function ordenActualizar(Router $router) {
         session_start();
         isAuth();
         isMesero();

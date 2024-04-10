@@ -17,9 +17,12 @@ function buscarPorFecha() {
 }
 
 function Orden() {
-    const botonListo = document.querySelector("#listo");
-    botonListo.addEventListener("click",eliminarOrden)
+       const botonListo = document.querySelector("#listo");
+       botonListo.addEventListener("click",eliminarOrden)
+
 }
+
+
 
 async function eliminarOrden() {
     const ordenId = document.querySelector("#ordenId");

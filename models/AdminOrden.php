@@ -5,7 +5,7 @@ namespace Model;
 class AdminOrden extends ActiveRecord {
 
     protected static $tabla = "ordenesproductos";
-    protected static $columnasDB = ["id","fecha","hora","mesaId","Cantidad","producto","comentario","usuario","usuarioId"];
+    protected static $columnasDB = ["id","fecha","hora","mesaId","Cantidad","producto","categoriasId","comentario","usuario","usuarioId"];
 
     public $id;
     public $fecha;
@@ -13,6 +13,7 @@ class AdminOrden extends ActiveRecord {
     public $mesaId;
     public $Cantidad;
     public $producto;
+    public $categoriasId;
     public $comentario;
     public $usuario;
     public $usuarioId;
@@ -25,6 +26,7 @@ class AdminOrden extends ActiveRecord {
         $this->mesaId = $args["mesaId"] ?? "";
         $this->Cantidad = $args["Cantidad"] ?? "";
         $this->producto = $args["producto"] ?? "";
+        $this->categoriasId = $args["categoriasId"] ?? "";
         $this->comentario = $args["comentario"] ?? "";
         $this->usuario = $args["usuario"] ?? "";
         $this->usuarioId = $args["usuarioId"] ?? "";

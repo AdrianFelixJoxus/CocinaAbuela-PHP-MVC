@@ -47,9 +47,12 @@
 
            <?php
            $idOrden = $orden->id; 
-            } // Fin if
+            }
+            
+             // Fin if
             //$total += $orden->precio * $orden->Cantidad;
             ?>
+            
             <div class="admin-header">
             <div class="header-productos">
                 <p>Cantidad</p>
@@ -63,9 +66,10 @@
                 <span><?php echo $orden->comentario; ?></span>
             </div>
             </div>
+           
             
-                
-
+            
+            
     <?php
     
         $actual = $orden->id;
@@ -77,6 +81,7 @@
             
         <div> 
             <input id="ordenId" type="hidden" name="ordenId" value="<?php echo $orden->id; ?>">
+            <input id="mesaId" type="hidden" name="mesaId" value="<?php echo $orden->mesaId; ?>">
             <input id="listo" type="submit" class="boton" value="Listo">
         </div>
             

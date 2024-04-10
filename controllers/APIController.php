@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Model\AdminOrden;
+use Model\Mesa;
 use Model\Orden;
 use Model\OrdenProducto;
 use Model\VentaProducto;
@@ -97,9 +98,12 @@ class APIController {
     }
 
     public static function eliminarOrden() {
+        session_start();
+        isAuth();
+        
         $id = $_POST["id"];
         $orden = OrdenProducto::whereM("ordenId",$id);
-        
+        isMesero();
         //Elimina por cada orden existente de 1 por 1
         foreach($orden as $o) {
             $o->eliminarM("ordenId",$id);
@@ -110,7 +114,7 @@ class APIController {
         echo json_encode(["resultado" => $resultado]);
     }
 
-   
+    
 
     public static function ninos() {
        

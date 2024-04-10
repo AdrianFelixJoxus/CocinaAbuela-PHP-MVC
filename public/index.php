@@ -67,6 +67,7 @@ $router->post("/api/eliminarOrden",[APIController::class,"eliminarOrden"]);
 
 
 
+
 // Api productos de los desayunos // Url o endpoint
 $router->get("/api/filtrar-huevos",[APIController::class,"huevos"]);
 $router->get("/api/filtrar-omelettes",[APIController::class,"Omelettes"]);
