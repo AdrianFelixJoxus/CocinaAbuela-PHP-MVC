@@ -175,6 +175,7 @@ class LoginController {
             }
         }
 
+        // Obtener alertas
         $alertas = Usuario::getAlertas();
         $router->render("auth/olvide-password",[
             "alertas" => $alertas
