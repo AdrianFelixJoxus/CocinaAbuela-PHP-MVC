@@ -63,6 +63,7 @@ $router->post("/ticket",[AdminController::class,"ticket"]);
 $router->post("/api/ordenes",[APIController::class,"guardar"]);
 $router->post("/api/eliminarVenta",[APIController::class,"eliminarVenta"]);
 $router->post("/api/eliminarOrden",[APIController::class,"eliminarOrden"]);
+$router->post("/api/actualizarOrden",[APIController::class,"actualizarOrden"]);
 
 
 

@@ -97,6 +97,20 @@ class APIController {
     
     }
 
+    public static function actualizarOrden() {
+        session_start();
+        isAuth();
+
+        $id = $_POST["id"];//ordenId
+        $mesaId = $_POST["mesaId"];
+        $orden = OrdenProducto::whereM("ordenId",$id);
+
+        if($orden) {
+            header("location: /orden?mesa=$mesaId");
+        }
+        echo json_encode($orden);
+    }
+
     public static function eliminarOrden() {
         session_start();
         isAuth();

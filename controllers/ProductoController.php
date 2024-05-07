@@ -18,9 +18,6 @@ class ProductoController {
         
         $productos = Producto::all();
         $categorias = Categoria::all();
-       
-
-        
         
         $resultado = $_GET["resultado"] ?? null;
         
@@ -107,6 +104,7 @@ class ProductoController {
             
 
         }
+        $alertas = Producto::getAlertas();
         $router->render("/productos/crear",[
             "producto" => $producto,
             "alertas" => $alertas,
@@ -156,8 +154,6 @@ class ProductoController {
             }
             $producto->categoriasId = $categoria;
             
-
-            
             
             if($array["nombre"] <> $_POST["producto"]["nombre"]) {
                 $alertas = $producto->existeProducto();
@@ -181,6 +177,8 @@ class ProductoController {
                }
             }
         }
+
+        $alertas = Producto::getAlertas();
 
         $router->render("/productos/actualizar",[
             "alertas" => $alertas,
